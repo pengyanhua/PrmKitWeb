@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrmKit – AI Prompt Toolkit for Developers</title>
+  <meta name="description" content="Manage, queue, and reuse AI prompts across coding assistants. A VS Code extension for productive AI-assisted development.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PrmKit – AI Prompt Toolkit for Developers">
+  <meta property="og:description" content="Manage, queue, and reuse AI prompts across coding assistants. Built for VS Code.">
+  <meta property="og:url" content="https://prmkit.dev">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PrmKit – AI Prompt Toolkit for Developers">
+  <meta name="twitter:description" content="Manage, queue, and reuse AI prompts across coding assistants. Built for VS Code.">
+
+  <!-- Keywords -->
+  <meta name="keywords" content="AI, prompt, VS Code, extension, developer tools, GitHub Copilot, Cursor, Claude, productivity">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .code-block {
+      background: #1e1e1e;
+      border-radius: 8px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    .feature-card {
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Hero Section -->
+  <header class="gradient-bg text-white">
+    <nav class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="4" stroke="white" stroke-width="2"/>
+            <path d="M7 10L12 6L17 10M7 14L12 18L17 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="text-2xl font-bold">PrmKit</span>
+        </div>
+        <div class="flex space-x-4">
+          <a href="https://github.com/pengyanhua/PrmKit" target="_blank" class="hover:text-gray-200 transition">GitHub</a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=pengyanhua.prmkit" target="_blank" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">Install</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-20 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">AI Prompt Toolkit<br/>for Developers</h1>
+      <p class="text-xl md:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto">
+        Manage, queue, and reuse prompts across AI coding assistants. Built for VS Code.
+      </p>
+      <div class="flex justify-center space-x-4">
+        <a href="https://marketplace.visualstudio.com/items?itemName=pengyanhua.prmkit" target="_blank"
+           class="bg-white text-purple-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
+          Get Started →
+        </a>
+        <a href="https://github.com/pengyanhua/PrmKit" target="_blank"
+           class="border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-purple-600 transition">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Problem Section -->
+  <section class="container mx-auto px-6 py-16">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Why PrmKit?</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <div class="text-red-500 text-2xl mb-2">❌</div>
+          <h3 class="font-semibold text-lg mb-2">Before</h3>
+          <ul class="text-gray-600 space-y-1 text-sm">
+            <li>• Retyping the same prompts over and over</li>
+            <li>• Losing track of pending AI tasks</li>
+            <li>• AI suggestions vanish when you switch tabs</li>
+            <li>• No reusable prompt library</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <div class="text-green-500 text-2xl mb-2">✅</div>
+          <h3 class="font-semibold text-lg mb-2">After</h3>
+          <ul class="text-gray-600 space-y-1 text-sm">
+            <li>• Queue prompts and execute in order</li>
+            <li>• Track execution status at a glance</li>
+            <li>• Quick Capture (Ctrl+Shift+Q) for AI suggestions</li>
+            <li>• Reuse templates with variables</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Core Features</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="feature-card bg-gray-50 p-6 rounded-lg shadow">
+          <div class="text-4xl mb-4">📋</div>
+          <h3 class="text-xl font-semibold mb-3">Prompt Queue</h3>
+          <p class="text-gray-600">Add, reorder, and execute prompts in sequence. Track status (pending/running/completed) for each item.</p>
+        </div>
+
+        <div class="feature-card bg-gray-50 p-6 rounded-lg shadow">
+          <div class="text-4xl mb-4">⚡</div>
+          <h3 class="text-xl font-semibold mb-3">Quick Capture</h3>
+          <p class="text-gray-600">Ctrl+Shift+Q to instantly save AI suggestions. Right-click to send selected code to your queue.</p>
+        </div>
+
+        <div class="feature-card bg-gray-50 p-6 rounded-lg shadow">
+          <div class="text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-semibold mb-3">Multi-Target Dispatch</h3>
+          <p class="text-gray-600">Send prompts to Clipboard, Terminal, Copilot Chat, Cursor AI, or Claude Code with one click.</p>
+        </div>
+
+        <div class="feature-card bg-gray-50 p-6 rounded-lg shadow">
+          <div class="text-4xl mb-4">🔧</div>
+          <h3 class="text-xl font-semibold mb-3">Template Variables</h3>
+          <p class="text-gray-600">Use {file}, {selection}, {language} placeholders. Auto-fill with current context on execution.</p>
+        </div>
+
+        <div class="feature-card bg-gray-50 p-6 rounded-lg shadow">
+          <div class="text-4xl mb-4">📊</div>
+          <h3 class="text-xl font-semibold mb-3">Usage Tracking</h3>
+          <p class="text-gray-600">See timestamps and usage counts. Sort by frequency to find your most-used prompts.</p>
+        </div>
+
+        <div class="feature-card bg-gray-50 p-6 rounded-lg shadow">
+          <div class="text-4xl mb-4">💾</div>
+          <h3 class="text-xl font-semibold mb-3">Import/Export</h3>
+          <p class="text-gray-600">Share prompt libraries with your team. Migrate across machines effortlessly.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">How It Works</h2>
+    <div class="max-w-3xl mx-auto space-y-6">
+
+      <div class="flex items-start space-x-4">
+        <div class="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">1</div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1">Install PrmKit Extension</h3>
+          <p class="text-gray-600">Search "PrmKit" in VS Code Extensions or install via Marketplace.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <div class="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">2</div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1">Add Prompts to Queue</h3>
+          <p class="text-gray-600">Use the sidebar panel, Quick Capture (Ctrl+Shift+Q), or right-click menu.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <div class="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">3</div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1">Execute & Track</h3>
+          <p class="text-gray-600">Click ▶ to send to your AI assistant. Status updates automatically. Reorder with drag-and-drop or ▲▼ buttons.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <div class="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">4</div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1">Reuse & Share</h3>
+          <p class="text-gray-600">Save frequently-used prompts as templates. Export and share with your team.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Installation -->
+  <section class="bg-gray-100 py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Installation</h2>
+      <div class="max-w-2xl mx-auto">
+        <div class="code-block text-gray-300 font-mono text-sm">
+          <div class="mb-2 text-gray-500"># Via VS Code Marketplace</div>
+          <div>ext install pengyanhua.prmkit</div>
+          <br/>
+          <div class="mb-2 text-gray-500"># Or search "PrmKit" in Extensions panel</div>
+        </div>
+        <p class="text-center mt-6 text-gray-600">
+          <a href="https://marketplace.visualstudio.com/items?itemName=pengyanhua.prmkit" target="_blank" class="text-purple-600 hover:underline font-semibold">
+            View on VS Code Marketplace →
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supported AI Tools -->
+  <section class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Works With Your Favorite AI Tools</h2>
+    <div class="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
+      <div class="bg-white px-6 py-3 rounded-lg shadow text-center">
+        <div class="font-semibold">GitHub Copilot</div>
+      </div>
+      <div class="bg-white px-6 py-3 rounded-lg shadow text-center">
+        <div class="font-semibold">Cursor AI</div>
+      </div>
+      <div class="bg-white px-6 py-3 rounded-lg shadow text-center">
+        <div class="font-semibold">Claude Code</div>
+      </div>
+      <div class="bg-white px-6 py-3 rounded-lg shadow text-center">
+        <div class="font-semibold">VS Code Terminal</div>
+      </div>
+      <div class="bg-white px-6 py-3 rounded-lg shadow text-center">
+        <div class="font-semibold">Universal Clipboard</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="gradient-bg text-white py-16">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Ready to Supercharge Your AI Workflow?</h2>
+      <p class="text-xl text-purple-100 mb-8">Join developers using PrmKit to manage AI prompts efficiently.</p>
+      <a href="https://marketplace.visualstudio.com/items?itemName=pengyanhua.prmkit" target="_blank"
+         class="inline-block bg-white text-purple-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
+        Install PrmKit Now →
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-400 py-8">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <span class="text-white font-semibold">PrmKit</span> – AI Prompt Toolkit for Developers
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://github.com/pengyanhua/PrmKit" target="_blank" class="hover:text-white transition">GitHub</a>
+          <a href="https://github.com/pengyanhua/PrmKit/issues" target="_blank" class="hover:text-white transition">Issues</a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=pengyanhua.prmkit" target="_blank" class="hover:text-white transition">Marketplace</a>
+        </div>
+      </div>
+      <div class="mt-4 text-center text-sm text-gray-500">
+        © 2026 PrmKit. Open source under MIT License.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
